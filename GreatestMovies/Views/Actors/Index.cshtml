@@ -1,39 +1,39 @@
 ﻿@model IEnumerable<GreatestMovies.Models.Actor>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Actors";
 }
 
-<h2>Index</h2>
+<h2 class="myHeading">Greatest Actors of All Time</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Add Actor", "Create")
 </p>
 
-<div class="row">
-    @foreach (var item in Model)
-    {
-        <div class="col-md-4">
-            <h1>
-                Actor's Name: @Html.DisplayFor(modelItem => item.ActorName)
-            </h1>
-            <h4>
-                This actor was born on: @Html.DisplayFor(modelItem => item.DOB)
-            </h4>
-            <h4>
-                This actor's nationality is: @Html.DisplayFor(modelItem => item.Nationality)
-            </h4>
-            <h6>
-                Gender: @Html.DisplayFor(modelItem => item.Gender)
-            </h6>
-            <p>
-                @Html.ActionLink("Edit", "Edit", new { id = item.ActorID }) |
-                @Html.ActionLink("Details", "Details", new { id = item.ActorID }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.ActorID })
-            </p>
-        </div>
-    }
-</div>
 
+@foreach (var item in Model)
+{
+    <div class="col-md-4 colBorder">
+        <div class="card-block">
+            <h4 class="card-title">@Html.DisplayFor(modelItem => item.ActorName)</h4>
+            <div class="meta">
+                <p>Born on: @Html.DisplayFor(modelItem => item.DOB)</p>
+            </div>
+            <div class="card-text">
+                Nationality: @Html.DisplayFor(modelItem => item.Nationality)
+            </div>
+            <div class="card-text">
+                Gender: @Html.DisplayFor(modelItem => item.Gender)
+            </div>
+        </div>
+
+
+        <p>
+            @Html.ActionLink("Edit", "Edit", new { id = item.ActorID }) |
+            @Html.ActionLink("Details", "Details", new { id = item.ActorID }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.ActorID })
+        </p>
+    </div>
+}
 
 

@@ -1,12 +1,15 @@
 ﻿body {
+    font-family: 'Quicksand', sans-serif;
     padding-top: 50px;
     padding-bottom: 20px;
+    background-color: #579184;
 }
 
-/* Set padding to keep content from hitting the edges */
+/*Set padding to keep content from hitting the edges*/
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
+    font-family: 'Quicksand', sans-serif;
 }
 
 /* Override the default bootstrap behavior where horizontal description lists 
@@ -21,4 +24,27 @@ input,
 select,
 textarea {
     max-width: 280px;
+}
+
+.colBorder {
+    border: 1px groove black;
+    margin: 5px;
+    width: 350px;
+    text-align: center;
+    background: #76b8c4;
+    background: -webkit-linear-gradient(#59e8c8, #284963);
+    background: -moz-linear-gradient(#59e8c8, #284963);
+    background: linear-gradient(#59e8c8, #2284963);
+    color: #030303;
+    font-size: larger;
+}
+
+footer {
+    text-align: center;
+}
+.myHeading{
+    text-align:center;
+}
+a {
+    color: #62007e;
 }
