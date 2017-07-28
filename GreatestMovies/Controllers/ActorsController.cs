@@ -46,10 +46,11 @@ namespace GreatestMovies.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ActorID,ActorName,DOB,Nationality,Gender")] Actor actor)
+        public ActionResult Create([Bind(Include = "ActorID,ActorName,DOB,Nationality,Gender,Votes")] Actor actor)
         {
             if (ModelState.IsValid)
             {
+                actor.Votes = 0;
                 db.Actors.Add(actor);
                 db.SaveChanges();
                 return RedirectToAction("Index");

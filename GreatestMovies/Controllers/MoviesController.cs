@@ -48,10 +48,11 @@ namespace GreatestMovies.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "MovieID,Title,ReleaseDate,BoxOfficeGross,GenreID")] Movie movie)
+        public ActionResult Create([Bind(Include = "MovieID,Title,ReleaseDate,BoxOfficeGross,GenreID,Votes")] Movie movie)
         {
             if (ModelState.IsValid)
             {
+                movie.Votes = 0;
                 db.Movies.Add(movie);
                 db.SaveChanges();
                 return RedirectToAction("Index");
