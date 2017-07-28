@@ -12,9 +12,10 @@ namespace GreatestMovies.Models
         [Key]
         public int MovieID { get; set; }
         public string Title { get; set; }
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:MM/dd/yyyy}")]
         public DateTime ReleaseDate { get; set; }
         public double BoxOfficeGross { get; set; }
-
+        public int Votes { get; set; }
         [ForeignKey("Genre")]
         public int GenreID { get; set; }
         public virtual Genre Genre { get; set; }

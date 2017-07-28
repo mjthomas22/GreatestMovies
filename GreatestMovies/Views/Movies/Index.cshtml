@@ -1,51 +1,36 @@
 ﻿@model IEnumerable<GreatestMovies.Models.Movie>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Movies";
 }
 
-<h2>Index</h2>
+<h2 class="myHeading">Greatest Movies of All Time</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    <button class="btn btn-default">@Html.ActionLink("Add Movie", "Create")</button>
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Genre.GenreType)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Title)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ReleaseDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.BoxOfficeGross)
-        </th>
-        <th></th>
-    </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Genre.GenreType)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Title)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ReleaseDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.BoxOfficeGross)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.MovieID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.MovieID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.MovieID })
-        </td>
-    </tr>
+
+@foreach (var item in Model)
+{
+    <div class="col-md-4 colBorder">
+        <div class="card-block">
+            <h4 class="card-title">@Html.DisplayFor(modelItem => item.Title)</h4>
+            <div class="meta">
+                <p>Genre: @Html.DisplayFor(modelItem => item.Genre.GenreType)</p>
+            </div>
+
+            <div class="card-text">
+                Release Date: @Html.DisplayFor(modelItem => item.ReleaseDate)
+            </div>
+            <div class="card-text">
+                Gross Box Office: @Html.DisplayFor(modelItem => item.BoxOfficeGross)
+            </div>
+            <p>
+                @Html.ActionLink("Edit", "Edit", new { id = item.MovieID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.MovieID })   
+            </p>
+        </div>
+    </div>
 }
 
-</table>

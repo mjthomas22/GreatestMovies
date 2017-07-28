@@ -42,9 +42,26 @@ textarea {
 footer {
     text-align: center;
 }
-.myHeading{
-    text-align:center;
+
+.myHeading {
+    text-align: center;
 }
+
 a {
-    color: #62007e;
+    color: #9d9d9d;
+}
+
+.btn-default {
+    background-color: #222;
+    color: #9d9d9d;
+    border: 0;
+}
+
+    .btn-default a {
+        color: #9d9d9d;
+    }
+
+.card-title{
+    text-shadow:25px;
+    font-size:25px;
 }
