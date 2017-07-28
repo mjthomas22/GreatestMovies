@@ -1,0 +1,26 @@
+﻿@model IEnumerable<GreatestMovies.Models.Actor>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.ActionLink("Votes", "Sorted", new { sortOrder = ViewBag.NumberSortParm })
+        </th>
+        <th>
+            @Html.ActionLink("Actor's Name", "Sorted", new { sortOrder = ViewBag.NameSortParm })
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Votes)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ActorName)
+            </td>
+        </tr>
+    }
+
+</table>

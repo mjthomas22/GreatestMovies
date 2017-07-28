@@ -124,5 +124,44 @@ namespace GreatestMovies.Controllers
             }
             base.Dispose(disposing);
         }
+        public ActionResult ToggleDone(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Actor actor = db.Actors.Find(id);
+            if (actor == null)
+            {
+                return HttpNotFound();
+            }
+            else
+            {
+                actor.Votes++;
+            }
+
+            db.SaveChanges();
+
+            return RedirectToAction("Index");
+        }
+        public ActionResult Sorted(string sortOrder)
+        {
+            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+            ViewBag.DateSortParm = sortOrder == "Date" ? "date_desc" : "Date";
+            ViewBag.NumberSortParm = sortOrder == "Votes" ? "votes_desc" : "Votes";
+            var actors = from s in db.Actors
+                           select s;
+            switch (sortOrder)
+            {
+                case "name_desc":
+                    actors = actors.OrderByDescending(s => s.ActorName);
+                    break;
+                case "Votes":
+                    actors = actors.OrderBy(s => s.Votes);
+                    break;
+              
+            }
+            return View(actors.ToList());
+        }
     }
 }

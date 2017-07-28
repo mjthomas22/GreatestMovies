@@ -129,5 +129,25 @@ namespace GreatestMovies.Controllers
             }
             base.Dispose(disposing);
         }
+        public ActionResult ToggleDone(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Actor actor = db.Actors.Find(id);
+            if (actor == null)
+            {
+                return HttpNotFound();
+            }
+            else
+            {
+                actor.Votes++;
+            }
+
+            db.SaveChanges();
+
+            return RedirectToAction("Index");
+        }
     }
 }

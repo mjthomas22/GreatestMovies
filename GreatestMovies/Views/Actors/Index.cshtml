@@ -26,12 +26,12 @@
                 Gender: @Html.DisplayFor(modelItem => item.Gender)
             </div>
             <div class="card-text">
-                Gender: @Html.DisplayFor(modelItem => item.Gender)
-            </div><div class="card-text">
-                Gender: @Html.DisplayFor(modelItem => item.Gender)
+                Votes: @Html.DisplayFor(modelItem => item.Votes)
+            </div>
+            <div>
+                <a href="@Url.Action("ToggleDone", new { id=item.ActorID })"><span class="glyphicon glyphicon-thumbs-up" style="color:blue;"><br />Vote Now</span></a>
             </div>
         </div>
-
 
         <p>
             @Html.ActionLink("Edit", "Edit", new { id = item.ActorID }) |

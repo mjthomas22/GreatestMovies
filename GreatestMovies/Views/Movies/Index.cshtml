@@ -26,6 +26,9 @@
             <div class="card-text">
                 Gross Box Office: @Html.DisplayFor(modelItem => item.BoxOfficeGross)
             </div>
+            <div>
+                <a href="@Url.Action("ToggleDone", new { id=item.MovieID })"><span class="glyphicon glyphicon-thumbs-up" style="color:blue;"><br />Vote Now</span></a>
+            </div>
             <p>
                 @Html.ActionLink("Edit", "Edit", new { id = item.MovieID }) |
                 @Html.ActionLink("Details", "Details", new { id = item.MovieID })   
